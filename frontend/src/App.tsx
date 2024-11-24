@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoginPage from "../src/page/login/Login";
+import Layout from "../src/components/Layout";
 import Dashboard from "./test/Dashboard";
 import ManagerPage from "./test/ManagerPage";
 import PageA from "./test/PageA";
@@ -14,7 +15,9 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/manager" element={<ManagerPage />} />
+        <Route path="/" element={<Layout />}>
+          <Route path="manager" element={<ManagerPage />} />
+        </Route>
         <Route path="/page-a" element={<PageA />} />
         <Route path="/page-b" element={<PageB />} />
         <Route path="/page-c" element={<PageC />} />

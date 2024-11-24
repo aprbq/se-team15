@@ -1,0 +1,89 @@
+.layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(16, 81, 95, 1);
+    padding: 0 20px;
+    height: 80px;
+    color: white;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-image {
+    height: 60px;
+    width: auto;
+    margin-left: 20px;
+  }
+  
+  .logo-text {
+    font-size: 24px;
+    font-family: Serif;
+    font-weight: bold;
+    color: white;
+  }
+
+  .menu {
+    height: 80px;
+    background: rgba(16, 81, 95, 0);
+    color: #fff;
+    margin-left: 25%;
+  }
+  .menu .ant-menu-item {
+    color: #fff; 
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    padding: 0 28px;
+  }
+  .menu .ant-menu-item:hover {
+    background: #ffffff; 
+  }
+
+.avatar-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 15px; 
+}
+
+.avatar-section .ant-avatar {
+  width: 60px;  
+  height: auto;
+}
+
+.avatar-section .user-name {
+  color: white;
+  margin-left: 10px;
+  font-size: 16px;
+  min-width: 150px; /* ขยายพื้นที่สำหรับชื่อ */
+  white-space: nowrap; /* ป้องกันไม่ให้ชื่อถูกตัด */
+  overflow: hidden;
+  text-overflow: ellipsis; /* ถ้าชื่อยาวเกินให้แสดง '...' */
+}
+
+.logout-button {
+  margin-left: 20px;
+  font-size: 18px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.logout-button:hover {
+  color: red; 
+  transform: scale(1.7); 
+}
+
+  .content {
+    flex: 1;
+    background-color: #f0f2f5; 
+  }
+  
