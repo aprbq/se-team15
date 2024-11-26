@@ -8,6 +8,7 @@ import PageA from "./test/PageA";
 import PageB from "./test/PageB";
 import PageC from "./test/PageC";
 import PageD from "./test/PageD";
+import WarehouseManagement from "./test/PageW";
 
 const App: React.FC = () => {
   return (
@@ -21,7 +22,9 @@ const App: React.FC = () => {
         <Route path="/page-a" element={<PageA />} />
         <Route path="/page-b" element={<PageB />} />
         <Route path="/page-c" element={<PageC />} />
-        <Route path="/page-d" element={<PageD />} />
+        <Route path="/page-d" element={<PageD />} /> WarehouseManagement
+        <Route path="/page-warehouse" element={<WarehouseManagement />} /> 
+
       </Routes>
     </Router>
   );

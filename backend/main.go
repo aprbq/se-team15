@@ -32,9 +32,17 @@ func main() {
 		router.GET("/user/:id", controller.GetEmployees)
 		router.DELETE("/user/:id", controller.DeleteEmployees)
 
+		router.PUT("/warehouse/:id", controller.UpdateWarehouses)
+		router.GET("/warehouses", controller.GetAllWarehouses)
+		router.GET("/warehouse/:id", controller.GetWarehouses)
+		router.DELETE("/warehouse/:id", controller.DeleteWarehouses)
+
 	}
 
 	r.GET("/genders", controller.GetListGenders)
+	r.GET("/warehouseTypes", controller.GetAllWarehouseTypes)
+	r.GET("/warehouseStatuses", controller.GetAllWarehouseStatuses)
+	r.GET("/provinces", controller.GetAllProvinces)
 	r.GET("/", func(c *gin.Context) {
 
 		c.String(http.StatusOK, "API RUNNING... PORT: %s", PORT)
