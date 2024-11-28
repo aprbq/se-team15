@@ -96,6 +96,28 @@ async function CreateEmployee(data: EmployeeInterface) {
 }
 
 
+async function GetAllLocation() {
+
+  return await axios
+
+    .get(`${apiUrl}/location`, requestOptions)
+    .then((res) => res)
+    .catch((e) => e.response);
+
+}
+
+
+async function GetLocationById(id: string) {
+
+  return await axios
+
+    .get(`${apiUrl}/location/${id}`, requestOptions)
+    .then((res) => res)
+    .catch((e) => e.response);
+
+}
+
+
 export {
 
   SignIn,
@@ -105,5 +127,7 @@ export {
   UpdateEmployeeById,
   DeleteEmployeeById,
   CreateEmployee,
+  GetAllLocation,
+  GetLocationById,
 
 };

@@ -17,9 +17,9 @@ const App: React.FC = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/" element={<Layout />}>
           <Route path="manager" element={<ManagerPage />} />
+          <Route path="page-a" element={<PageA />} />
+          <Route path="/page-b/:warehouseID/:shelfID" element={<PageB />} />
         </Route>
-        <Route path="/page-a" element={<PageA />} />
-        <Route path="/page-b" element={<PageB />} />
         <Route path="/page-c" element={<PageC />} />
         <Route path="/page-d" element={<PageD />} />
       </Routes>

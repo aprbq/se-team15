@@ -40,4 +40,14 @@ export interface WarehousesInterface {
     ID?: number;
     Warehouse_name?: string;
   }
-  
+
+export interface LocationInterface {
+	ID?: number;
+    Shelf?: number;
+	Block?: number;
+	WarehouseID?: number;
+	ZoneID?: number;
+	LocationStatusID?: number;
+	CreateByID?: number;
+	UpdateByID?: number;
+}

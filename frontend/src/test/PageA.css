@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+
+.text-1{   
+    font-family: "Varela Round", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.card-1{
+    background-color: #E7E7E7;
+    font-family: "Varela Round", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.card-1:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.banner{
+    background: rgba(16, 81, 95, 0.767);
+}
+
+.btn-1 {
+    font-family: "Varela Round", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #FF7236 !important;
+    color: #f5f5f5;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* เพิ่ม transition สำหรับการเปลี่ยนแปลง */
+}
+
+
+.btn-1:hover {
+    background-color: #f3f3f3 !important; /* เปลี่ยนสีพื้นหลังเมื่อ hover */
+    color: #000000; /* เปลี่ยนสีข้อความเมื่อ hover */
+}
