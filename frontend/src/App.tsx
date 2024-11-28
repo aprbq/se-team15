@@ -8,7 +8,8 @@ import PageA from "./test/PageA";
 import PageB from "./test/PageB";
 import PageC from "./test/PageC";
 import PageD from "./test/PageD";
-
+import OrderMain from "./test/OrderMain";
+import { NewOrderForm } from "./test/NewOrder";
 const App: React.FC = () => {
   return (
     <Router>
@@ -19,6 +20,8 @@ const App: React.FC = () => {
           <Route path="manager" element={<ManagerPage />} />
           <Route path="page-a" element={<PageA />} />
           <Route path="/page-b/:warehouseID/:shelfID" element={<PageB />} />
+          <Route path="/order" element={<OrderMain />} />
+          <Route path="/newOrder" element={<NewOrderForm />} />
         </Route>
         <Route path="/page-c" element={<PageC />} />
         <Route path="/page-d" element={<PageD />} />
