@@ -17,5 +17,5 @@ type Warehouses struct {
 	WarehouseType     *WarehouseTypes    `gorm:"foreignKey: WarehouseTypeID" `
 	WarehouseStatus   *WarehouseStatuses `gorm:"foreignKey: WarehouseStatusID" `
 
-	Employees []Employee `gorm:"foreignKey:PositionID"`
+	Employees []Employee `gorm:"foreignKey:WarehouseID"`
 }

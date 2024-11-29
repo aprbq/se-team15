@@ -32,6 +32,11 @@ func main() {
 		router.GET("/user/:id", controller.GetEmployees)
 		router.DELETE("/user/:id", controller.DeleteEmployees)
 
+		router.GET("/location", controller.GetAll)
+		router.GET("/location/:id", controller.Get)
+
+
+
 	}
 
 	r.GET("/genders", controller.GetListGenders)

@@ -12,6 +12,7 @@
     font-family: "Varela Round", sans-serif;
     font-weight: 400;
     font-style: normal;
+    color: #000000;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -24,6 +25,11 @@
 }
 
 .banner{
+    font-family: "Varela Round", sans-serif;
+    font-weight: 400px;
+    font-style: normal;
+    font-size: 24px;
+    color: #ffffff;
     background: rgba(16, 81, 95, 0.767);
 }
 

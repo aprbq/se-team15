@@ -64,9 +64,9 @@ const PageA: React.FC = () => {
   const groupedWarehouses = groupByWarehouse();
 
   return (
-    <div style={{ textAlign: "center", margin: "0", padding: "0", backgroundColor: "#f5f5f5" }}>
+    <div style={{ margin: "0", padding: "0", backgroundColor: "#f5f5f5" }}>
       {contextHolder}
-      <div style={{ padding: "20px", color: "white" }} className="banner">
+      <div style={{ padding: "20px"}} className="banner">
         <h1>Locations</h1>
       </div>
       <div style={{ padding: "20px" }}>

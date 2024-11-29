@@ -38,6 +38,11 @@ func SetupDatabase() {
 		&entity.Employee{},
 		&entity.Genders{},
 		&entity.Positions{},
+		&entity.LocationStatus{},
+		&entity.Location{},
+		&entity.ProductLocation{},
+		&entity.Product{},
+		&entity.Zone{},
 	)
 
 	GenderMale := entity.Genders{Gender: "Male"}

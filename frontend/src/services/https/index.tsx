@@ -1,4 +1,4 @@
-import { EmployeeInterface, CustomerInterface, GendersInterface, PositionsInterface, WarehousesInterface } from "../../interfaces/InterfaceFull";
+import { EmployeeInterface, CustomerInterface, GendersInterface, PositionsInterface, WarehousesInterface, } from "../../interfaces/InterfaceFull";
 import { SignInInterface } from "../../interfaces/SignIn";
 import axios from "axios";
 

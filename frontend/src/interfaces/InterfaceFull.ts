@@ -48,6 +48,6 @@ export interface LocationInterface {
 	WarehouseID?: number;
 	ZoneID?: number;
 	LocationStatusID?: number;
-	CreateByID?: number;
-	UpdateByID?: number;
+	// CreateByID?: number;
+	// UpdateByID?: number;
 }
