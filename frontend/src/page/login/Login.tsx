@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button, Input, Form, message } from "antd";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
@@ -5,17 +6,19 @@ import wareh from "../../assets/warehouse.jpg";
 import title_e from "../../assets/title.png";
 import people_m from "../../assets/peoplemanage.png";
 import { SignIn } from "../../services/https/index"; 
-import {SignInInterface} from '../../interfaces/SignIn';
+import { SignInInterface } from '../../interfaces/SignIn';
 
 function WarehouseLogin() {
   const navigate = useNavigate();
   const [messageApi, contextHolder] = message.useMessage();
+  const [loading, setLoading] = useState(false);  // สถานะการโหลด
 
   const onFinish = async (values: SignInInterface) => {
+    setLoading(true);  
     let res = await SignIn(values);
 
     if (res.status === 200) {
-      const { token, token_type, id, access_level, avatar, e_firstname, e_lastname} = res.data;
+      const { token, token_type, id, access_level, avatar, e_firstname, e_lastname } = res.data;
 
       messageApi.success("Sign-in successful");
 
@@ -24,31 +27,34 @@ function WarehouseLogin() {
       localStorage.setItem("token_type", token_type);
       localStorage.setItem("id", id);
       localStorage.setItem("access_level", access_level);
-      localStorage.setItem("avatar", avatar); 
-      localStorage.setItem("e_firstname", e_firstname); 
-      localStorage.setItem("e_lastname", e_lastname); 
+      localStorage.setItem("avatar", avatar);
+      localStorage.setItem("e_firstname", e_firstname);
+      localStorage.setItem("e_lastname", e_lastname);
 
-      switch (access_level) {
-        case "Manager":
-          navigate("/manager");
-          break;
-        case "A":
-          navigate("/page-a");
-          break;
-        case "B":
-          navigate("/page-b");
-          break;
-        case "C":
-          navigate("/page-c");
-          break;
-        case "D":
-          navigate("/page-d");
-          break;
-        default:
-          navigate("/dashboard");
-      }
+      setTimeout(() => {
+        switch (access_level) {
+          case "Manager":
+            navigate("/manager");
+            break;
+          case "A":
+            navigate("/page-a");
+            break;
+          case "B":
+            navigate("/page-b");
+            break;
+          case "C":
+            navigate("/page-c");
+            break;
+          case "D":
+            navigate("/page-d");
+            break;
+          default:
+            navigate("/dashboard");
+        }
+      }, 3000); 
     } else {
       messageApi.error(res.data.error || "Sign-in failed");
+      setLoading(false); 
     }
   };
 
@@ -90,13 +96,18 @@ function WarehouseLogin() {
               <Input.Password placeholder="Enter your password" />
             </Form.Item>
             <Form.Item>
-              <Button type="primary" htmlType="submit" className="login-button">
+              <Button type="primary" htmlType="submit" className="login-button" disabled={loading}>
                 LOGIN
               </Button>
             </Form.Item>
           </Form>
         </div>
       </div>
+      {loading && (
+        <div className="loading-overlay">
+          <img src={"../../../src/assets/loading.gif"} alt="Loading..." />
+        </div>
+      )}
     </div>
   );
 };
