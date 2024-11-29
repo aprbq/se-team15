@@ -18,4 +18,6 @@ type Warehouses struct {
 	WarehouseStatus   *WarehouseStatuses `gorm:"foreignKey: WarehouseStatusID" `
 
 	Employees []Employee `gorm:"foreignKey:WarehouseID"`
+	Location []Location `gorm:"foreignKey:WarehouseID"`
+
 }
