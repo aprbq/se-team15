@@ -1,89 +1,172 @@
 .layout {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
-  .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: rgba(16, 81, 95, 1);
-    padding: 0 20px;
-    height: 80px;
-    color: white;
-  }
-
-  .logo {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo-image {
-    height: 60px;
-    width: auto;
-    margin-left: 20px;
-  }
-  
-  .logo-text {
-    font-size: 24px;
-    font-family: Serif;
-    font-weight: bold;
-    color: white;
-  }
-
-  .menu {
-    height: 80px;
-    background: rgba(16, 81, 95, 0);
-    color: #fff;
-    margin-left: 25%;
-  }
-  .menu .ant-menu-item {
-    color: #fff; 
-    display: flex;
-    align-items: center; 
-    justify-content: center;
-    padding: 0 28px;
-  }
-  .menu .ant-menu-item:hover {
-    background: #ffffff; 
-  }
-
-.avatar-section {
+.header {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  gap: 15px; 
+  justify-content: space-between;
+  background: rgba(16, 81, 95, 1);
+  padding: 0 20px;
+  height: 80px;
+  color: white;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  height: 60px;
+  width: auto;
+  margin-left: 70px;
+}
+
+.logo-text {
+  font-size: 24px;
+  font-family: Serif;
+  font-weight: bold;
+  color: white;
+}
+
+.menu {
+  height: 80px;
+  background: rgba(16, 81, 95, 0);
+  color: #fff;
+  margin-left: 25%;
+}
+.menu .ant-menu-item {
+  color: #fff; 
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  padding: 0 28px;
+}
+.menu .ant-menu-item:hover {
+  background: #ffffff; 
+}
+
+.avatar-s {
+  transition: transform 0.3s, filter 0.3s;
+}
+.avatar-s:hover {
+  margin-top: 30px;
+  transform: scale(1.7); 
+  filter: brightness(0.9); 
+}
+
+.avatar-section {
+display: flex;
+align-items: center;
+justify-content: flex-end;
+gap: 15px; 
 }
 
 .avatar-section .ant-avatar {
-  width: 60px;  
-  height: auto;
+object-fit: cover;
+width: 55px;  
+height: auto;
+border-radius: 8px;
+overflow: hidden;
 }
 
 .avatar-section .user-name {
+color: white;
+margin-left: 10px;
+font-size: 16px;
+min-width: 170px; 
+white-space: nowrap; 
+overflow: hidden;
+text-overflow: ellipsis; 
+}
+
+.logout-icon {
+width: 36px; 
+height: auto;
+transition: transform 0.3s, filter 0.3s;
+}
+
+.logout-icon:hover {
+transform: scale(1.7); 
+filter: brightness(0.8); 
+}
+
+
+.content {
+  flex: 1;
+  background-color: #f0f2f5; 
+}
+
+.footer {
+  text-align: center;
+  background: rgba(16, 81, 95, 1);
   color: white;
-  margin-left: 10px;
+  padding: 20px 0;
+}
+
+.footer-content {
   font-size: 16px;
-  min-width: 150px; /* ขยายพื้นที่สำหรับชื่อ */
-  white-space: nowrap; /* ป้องกันไม่ให้ชื่อถูกตัด */
-  overflow: hidden;
-  text-overflow: ellipsis; /* ถ้าชื่อยาวเกินให้แสดง '...' */
 }
 
-.logout-button {
-  margin-left: 20px;
-  font-size: 18px;
-  transition: color 0.3s, transform 0.3s;
+.menu-toggle-gif {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  cursor: pointer;
+  width: 35px; 
+  height: auto; 
+  z-index: 1000; 
+  border-radius: 10%;
+  margin-top: 14px;
+  margin-left: 10px;
+}  
+
+.drawer-menu .ant-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 20px; 
+  padding: 20px 20px;
+  background-color: white; 
+  font-weight: bold;
+  color: #FF7236; 
+  transition: all 0.3s ease; 
+  border-radius: 8px; 
+  margin-left: 35px;
 }
 
-.logout-button:hover {
-  color: red; 
-  transform: scale(1.7); 
+.drawer-menu .ant-menu-item:hover,
+.drawer-menu .ant-menu-item.ant-menu-item-selected {
+  background-color: #FF7236; 
+  color: white; 
 }
 
-  .content {
-    flex: 1;
-    background-color: #f0f2f5; 
+.drawer-menu .ant-menu-item img {
+  transition: transform 0.3s ease; 
+}
+
+.drawer-menu .ant-menu-item:hover img,
+.drawer-menu .ant-menu-item.ant-menu-item-selected img {
+  transform: scale(1.2); /* ขยายไอคอนเมื่อ hover หรือ active */
+}
+
+.drawer-menu .ant-menu-title {
+  margin-top: 10px;
+  margin-left: 105px; 
+  font-size: 24px; 
+  font-weight: bold; 
+  color: #000000; 
+  position: relative; 
+  animation: bounce-text 1s infinite; 
+}
+
+@keyframes bounce-text {
+  0%, 100% {
+    transform: translateY(0); 
   }
-  
+  50% {
+    transform: translateY(-10px); 
+  }
+}
