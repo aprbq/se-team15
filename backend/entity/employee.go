@@ -18,6 +18,9 @@ type Employee struct {
 	StartDate   time.Time `gorm:"not null"`
 	AccessLevel string    `gorm:"not null"`
 
+	Shipment []Shipment `gorm:"foreignKey:EmployeeID"`
+	Order    []Order    `gorm:"foreignKey:EmployeeID"`
+
 	GenderID    uint
 	Gender      Genders `gorm:"foriegnKey:GenderID"`
 	PositionID  uint

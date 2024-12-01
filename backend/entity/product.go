@@ -1,18 +1,15 @@
 package entity
 
-
 import (
-
-
-   "gorm.io/gorm"
-
+	"gorm.io/gorm"
 )
 
 type Product struct {
+	gorm.Model
 
-   gorm.Model
+	ProductName string
+	OrderItem   []OrderItem `gorm:"foreignKey:ProductID"`
 
-   ProductName string    
-
-
+	EmployeeID *uint
+	Employee   Employee `gorm:"foriegnKey:EmployeeID"`
 }

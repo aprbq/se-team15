@@ -14,6 +14,9 @@ type Customer struct {
 	Password  string `gorm:"not null"`
 	Address   string `gorm:"not null"`
 
+	Bill  []Bill  `gorm:"foreignKey:CustomerID"`
+	Order []Order `gorm:"foreignKey:CustomerID"`
+
 	GenderID uint
 	Gender   Genders `gorm:"foriegnKey:GenderID"`
 }

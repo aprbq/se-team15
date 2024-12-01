@@ -32,6 +32,8 @@ func SetupDatabase() {
 	db.AutoMigrate(
 		&entity.Provinces{},
 		&entity.WarehouseTypes{},
+		&entity.ShipStatus{},
+		&entity.OrderStatus{},
 		&entity.WarehouseStatuses{},
 		&entity.Warehouses{},
 		&entity.Customer{},
@@ -43,6 +45,10 @@ func SetupDatabase() {
 		&entity.ProductLocation{},
 		&entity.Product{},
 		&entity.Zone{},
+		&entity.Shipment{},
+		&entity.Order{},
+		&entity.OrderItem{},
+		&entity.Bill{},
 	)
 
 	GenderMale := entity.Genders{Gender: "Male"}
