@@ -10,6 +10,7 @@ import PageC from "./test/PageC";
 import PageD from "./test/PageD";
 import OrderMain from "./test/OrderMain";
 import { NewOrderForm } from "./test/NewOrder";
+import Product from "./test/Product"
 const App: React.FC = () => {
   return (
     <Router>
@@ -22,6 +23,7 @@ const App: React.FC = () => {
           <Route path="/page-b/:warehouseID/:shelfID" element={<PageB />} />
           <Route path="/order" element={<OrderMain />} />
           <Route path="/newOrder" element={<NewOrderForm />} />
+          <Route path="/product" element={<Product />} />
         </Route>
         <Route path="/page-c" element={<PageC />} />
         <Route path="/page-d" element={<PageD />} />
