@@ -6,6 +6,7 @@ const PageC: React.FC = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [form] = Form.useForm();
   const [categories, setCategories] = useState<string[]>(["electronics", "fashion", "food"]);
+  const [supplier, setSupplier] = useState<string[]>(["คนที่1", "คนที่2", "คนที่3"]);
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -36,6 +37,16 @@ const PageC: React.FC = () => {
 
     fetchCategories();
   }, []); // ใส่ [] เพื่อให้มันทำงานแค่ครั้งเดียวเมื่อคอมโพเนนต์โหลด
+
+  useEffect(() => {
+    const fetchSupplier = async () => {
+      const supplierFromEntity = ["คนที่1", "คนที่2", "คนที่3"];
+      setSupplier(supplierFromEntity);
+    };
+
+    fetchSupplier();
+  }, []); // ใส่ [] เพื่อให้มันทำงานแค่ครั้งเดียวเมื่อคอมโพเนนต์โหลด
+
 
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
@@ -80,6 +91,20 @@ const PageC: React.FC = () => {
               {categories.map((category) => (
                 <Select.Option key={category} value={category}>
                   {category}
+                </Select.Option>
+              ))}
+            </Select>
+          </Form.Item>
+
+          <Form.Item
+            label="ผู้ผลิต"
+            name="supplier"
+            rules={[{ required: true, message: "กรุณาเลือกผู้ผลิต!" }]}
+          >
+            <Select placeholder="เลือกผู้ผลิต" allowClear>
+              {supplier.map((supplier) => (
+                <Select.Option key={supplier} value={supplier}>
+                  {supplier}
                 </Select.Option>
               ))}
             </Select>
