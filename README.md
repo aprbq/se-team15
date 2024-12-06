@@ -3,6 +3,7 @@
 cd frontend
 npm install
 npm install lucide-react
+npm install react-router-dom
 npm run dev
 ```
 
