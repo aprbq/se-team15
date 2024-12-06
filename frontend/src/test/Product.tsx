@@ -1,25 +1,22 @@
-import React, { useState } from "react";
-import { Button, Modal, Form, Input, InputNumber } from "antd"; // นำเข้า Form, Input, InputNumber
-import { FormInstance } from "antd/es/form";
+import React, { useState, useEffect } from "react";
+import { Button, Modal, Form, Input, InputNumber, Select, Upload } from "antd";
+import { UploadOutlined } from "@ant-design/icons";
 
-const Product: React.FC = () => {
+const PageC: React.FC = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-
   const [form] = Form.useForm();
+  const [categories, setCategories] = useState<string[]>(["electronics", "fashion", "food"]);
 
-  
   const showModal = () => {
     setIsModalVisible(true);
   };
 
- 
   const handleOk = () => {
     form
-      .validateFields() 
+      .validateFields()
       .then((values) => {
         console.log("สินค้าใหม่:", values);
-        // คุณสามารถส่งข้อมูลไปยัง backend หรือทำการบันทึกที่นี่
-        setIsModalVisible(false); 
+        setIsModalVisible(false);
       })
       .catch((errorInfo) => {
         console.log("Error:", errorInfo);
@@ -27,8 +24,18 @@ const Product: React.FC = () => {
   };
 
   const handleCancel = () => {
-    setIsModalVisible(false); 
+    setIsModalVisible(false);
   };
+
+  // ใช้ useEffect สำหรับเรียกฟังก์ชัน fetchCategories เมื่อคอมโพเนนต์ถูก mount
+  useEffect(() => {
+    const fetchCategories = async () => {
+      const categoriesFromEntity = ["electronics", "fashion", "food"];
+      setCategories(categoriesFromEntity);
+    };
+
+    fetchCategories();
+  }, []); // ใส่ [] เพื่อให้มันทำงานแค่ครั้งเดียวเมื่อคอมโพเนนต์โหลด
 
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
@@ -41,7 +48,7 @@ const Product: React.FC = () => {
         visible={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
-        footer={null} 
+        footer={null}
       >
         <Form form={form} layout="vertical" name="add_product_form">
           <Form.Item
@@ -64,6 +71,29 @@ const Product: React.FC = () => {
             />
           </Form.Item>
 
+          <Form.Item
+            label="ประเภทสินค้า"
+            name="category"
+            rules={[{ required: true, message: "กรุณาเลือกประเภทสินค้า!" }]}
+          >
+            <Select placeholder="เลือกประเภทสินค้า" allowClear>
+              {categories.map((category) => (
+                <Select.Option key={category} value={category}>
+                  {category}
+                </Select.Option>
+              ))}
+            </Select>
+          </Form.Item>
+
+          <Form.Item label="อัปโหลดรูปภาพ" name="image">
+            <Upload
+              showUploadList={false}
+              accept="image/*"
+            >
+              <Button icon={<UploadOutlined />}>คลิกเพื่อเลือกไฟล์รูปภาพ</Button>
+            </Upload>
+          </Form.Item>
+
           <div style={{ textAlign: "center" }}>
             <Button onClick={handleCancel} style={{ marginRight: 8 }}>
               ยกเลิก
@@ -82,4 +112,4 @@ const Product: React.FC = () => {
   );
 };
 
-export default Product;
+export default PageC;
